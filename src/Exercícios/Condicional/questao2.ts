@@ -3,7 +3,7 @@ número e retorne se ele é par ou ímpar
 */
 
 
-function par_impar(){
+export function exercicio02(): void{
     if(numero % 2 === 0){
         console.log("É par")
     }
@@ -16,5 +16,3 @@ import readline from 'readline-sync';
 
 let entrada = readline.question("Informe um número: ");
 let numero = Number(entrada);
-
-par_impar()
