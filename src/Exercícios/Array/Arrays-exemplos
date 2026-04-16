@@ -1,0 +1,10 @@
+let cores: string[] = ["vermelho","Verde","azul"]
+
+//push(): Insere um novo elemento ao final do array
+cores.push("Amarelo") // Adicional na lista ex:["vermelho","Verde","azul", "Amarelo]
+
+//pop(): Remove o último item do array
+cores.pop("") // Remove o último item ex: ["vermelho","Verde","azul",]
+
+//unshift
+cores.unshift()
