@@ -57,7 +57,7 @@ console.log(transporte)*/
 //    return /* condição lógica */ 
 //      })
 
-const notas = [4.5, 5.8, 9.2, 5.0, 10.0,]
+/* const notas = [4.5, 5.8, 9.2, 5.0, 10.0,]
 
 //Filtra apenas notas maiores ou iguais a 6
 const aprovados = notas.filter((n) => {
@@ -65,4 +65,4 @@ const aprovados = notas.filter((n) => {
  })
 
 console.log(notas)
-console.log(aprovados)
+console.log(aprovados) */

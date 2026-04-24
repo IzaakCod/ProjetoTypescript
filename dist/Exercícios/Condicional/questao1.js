@@ -16,3 +16,4 @@ export function exercicio01() {
         console.log("Número é negativo");
     }
 }
+exercicio01();

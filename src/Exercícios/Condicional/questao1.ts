@@ -5,6 +5,7 @@
 export function exercicio01(): void{
 
     let numero:number = Number(prompt("Informe um número"))
+
     if (numero % 2 == 0){
         console.log("Número é par")
     }else{
@@ -16,3 +17,5 @@ export function exercicio01(): void{
         console.log("Número é negativo")
     }
 }
+
+exercicio01()
