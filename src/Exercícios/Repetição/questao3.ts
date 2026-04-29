@@ -7,13 +7,13 @@ recebeu;
 ● O número de funcionários do sexo masculino e feminino cadastrado;
 ● O percentual de funcionários homens e mulheres cadastrados. */
 
-let nome: string =""
+let nome: string = ""
 let horasTra: number = 0
 let salarioHora: number = 0
 let sexo: string =""
 
 let salario: number = 0
-let soma: number = 0
+let salarioTotal: number = 0
 
 let maior: number = -99999
 let nomeSalario: string =""
@@ -22,19 +22,20 @@ let contM: number = 0
 let contF: number = 0
 
 let opcao: string ="S"
+
 export function exercicio03(): void{
     while(opcao !="N"){
 
-        nome = prompt("Qual o seu nome:")
-        horasTra = (prompt("Quantas horas você trabalhou:"))
-        salarioHora = (prompt("Quanto você recebe por hora trabalhada:"))
-        sexo = (prompt("Qual o seu sexo? M-masculino, F-Feminino"))?.toUpperCase()
+        nome =  prompt("Qual o seu nome:")!
+        horasTra = Number(prompt("Quantas horas você trabalhou:")!)
+        salarioHora = Number(prompt("Quanto você recebe por hora trabalhada:")!)
+        sexo = prompt("Qual o seu sexo? M-masculino, F-Feminino")!.toUpperCase()
         salario = horasTra * salarioHora
-        soma += salario
+        salarioTotal += salario
 
-        if(maior > salarioHora){
-            maior = salarioHora
-            nomeSalario = nome
+        if(salario > maior ){
+            maior = salario
+         nomeSalario = nome
         }
         if(sexo == "M"){
             contM++
@@ -43,11 +44,24 @@ export function exercicio03(): void{
             contF++
         }
         
-        opcao = prompt("Deseja continuar, digite S - Sim, ou N - Não")?.toUpperCase()
+        opcao = prompt("Deseja continuar, digite S - Sim, ou N - Não")!.toUpperCase()
     }
 }
 
+exercicio03()
+
 let total = contF + contM
 
-let percM = (total /contM) * 100
-let percF = (total / contF) * 100
+let percM = (contM / total) * 100
+let percF = (contF / total) * 100
+
+console.log("O salário total dos funcionários é: " +salarioTotal)
+
+console.log("O maior salário é: " +maior)
+console.log("E quem recebeu foi: " +nomeSalario)
+
+console.log("O número de funcionários do sexo masculino são: " +contM)
+console.log("O número de funcionários do sexo feminino são: " +contF)
+
+console.log("A porcentagem de funcionários do sexo masculino é: " +percM.toFixed(2) + "%")
+console.log("A porcentagem de funcionárias do sexo feminino é: " +percF.toFixed(2) + "%")
