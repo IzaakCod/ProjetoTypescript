@@ -28,14 +28,15 @@ let valorHora: number = 0
 
 let salarioBruto = 0
 let salarioLiquido: number = 0
-
+let totalDescont: number = 0
 let ir: number = 0
 
 let inss: number = 0
 
-let Sindicato: number = 0
+let sindicato: number = 0
 
 let fgts: number = 0
+let valorfgts: number = 0
 let valeAli: number = 0.0
 
 let valeTrans: number = 0
@@ -43,18 +44,62 @@ let valeTrans: number = 0
 export function ImpostoRenda(): void {
     horasTrabalhadas = Number(prompt("Quantas horas você trabalho: "))
     valorHora = Number(prompt("Quanto você ganha por hora: "))
-    if(salarioLiquido <= 2428.80){
-        console.log("Isento")
-    }else if(salarioBruto >= 2428.81 || salarioBruto <= 2826.65){
-        ir = salarioBruto * 0.075
-        desconto1 - salarioBruto
+    salarioBruto = valorHora * horasTrabalhadas
+    if (salarioBruto <= 2428.80) {
+        ir = 0
         inss = salarioBruto * 0.10
-        inss - salarioBruto
         valeAli = salarioBruto * 0.08
-        valeAli - salarioBruto
         valeTrans = salarioBruto * 0.06
-        valeTrans - salarioBruto
+        sindicato = salarioBruto * 0.03
         fgts = salarioBruto * 0.11
+        totalDescont = + inss + sindicato + valeAli + valeTrans
+        salarioLiquido = salarioBruto - totalDescont
+        console.log("Isento")
+    } else if (salarioBruto >= 2428.81 && salarioBruto <= 2826.65) {
+        ir = salarioBruto * 0.075
+        inss = salarioBruto * 0.10
+        valeAli = salarioBruto * 0.08
+        valeTrans = salarioBruto * 0.06
+        sindicato = salarioBruto * 0.03
+        fgts = salarioBruto * 0.11
+        totalDescont = ir + inss + sindicato + valeAli + valeTrans
+        salarioLiquido = salarioBruto - totalDescont
+    } else if (salarioBruto >= 2826.66 && salarioBruto <= 3751.05) {
+        ir = salarioBruto * 0.15
+        inss = salarioBruto * 0.10
+        valeAli = salarioBruto * 0.08
+        valeTrans = salarioBruto * 0.06
+        sindicato = salarioBruto * 0.03
+        fgts = salarioBruto * 0.11
+        totalDescont = ir + inss + sindicato + valeAli + valeTrans
+        salarioLiquido = salarioBruto - totalDescont
+    } else if (salarioBruto >= 3751.06 && salarioBruto <= 4664.68) {
+        ir = salarioBruto * 0.225
+        inss = salarioBruto * 0.10
+        valeAli = salarioBruto * 0.08
+        valeTrans = salarioBruto * 0.06
+        sindicato = salarioBruto * 0.03
+        fgts = salarioBruto * 0.11
+        totalDescont = ir + inss + sindicato + valeAli + valeTrans
+        salarioLiquido = salarioBruto - totalDescont
+    } else if (salarioBruto >= 4664.68) {
+        ir = salarioBruto * 0.275
+        inss = salarioBruto * 0.10
+        valeAli = salarioBruto * 0.08
+        valeTrans = salarioBruto * 0.06
+        sindicato = salarioBruto * 0.03
+        fgts = salarioBruto * 0.11
+        totalDescont = ir + inss + sindicato + valeAli + valeTrans
+        salarioLiquido = salarioBruto - totalDescont
     }
-
 }
+ImpostoRenda()
+console.log("Salário bruto: " ,salarioBruto)
+console.log("IR: " ,ir)
+console.log("Inss: " ,inss)
+console.log("Sindicato: " ,sindicato)
+console.log("Vale alimentação: " ,valeAli)
+console.log("Vale transporte: " ,valeTrans)
+console.log("E o fgts é de: ", fgts.toFixed(2))
+console.log("Total descontos: " ,totalDescont)
+console.log("O salário líquido é: ", salarioLiquido.toFixed(2))
